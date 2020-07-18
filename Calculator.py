@@ -1,10 +1,11 @@
 import tkinter as tk
+import math
 
 window = tk.Tk()
 
 # Tkinter GUI window
 window.title("Calculator")
-window.geometry("390x324")
+window.geometry("390x377")
 window.resizable(0, 0)
 
 expression = ""
@@ -61,38 +62,41 @@ btns_frame.pack()
 #Buttons
 
 # First row "c" "/"
-tk.Button(btns_frame, text = "C", fg = "black", width = 32, height = 3, bd = 0, bg = "#ff0000", cursor = "hand2", command = lambda: btn_clear()).grid(row = 0, column = 0, columnspan = 3, padx = 1, pady = 1)
-tk.Button(btns_frame, text = "/", fg = "black", width = 10, height = 3, bd = 0, bg = "#00FFF3", cursor = "hand2", command = lambda: btn_click("/")).grid(row = 0, column = 3, padx = 1, pady = 1)
+tk.Button(btns_frame, text = "C", fg = "black", width = 32, height = 3, bd = 0, bg = "#ff0000", cursor = "hand2", command = lambda: btn_clear()).grid(row = 1, column = 1, columnspan = 3, padx = 1, pady = 1)
+tk.Button(btns_frame, text = "/", fg = "black", width = 10, height = 3, bd = 0, bg = "#2477ff", cursor = "hand2", command = lambda: btn_click("/")).grid(row = 1, column = 4, padx = 1, pady = 1)
 
 # Second row "7" "8" "9" "*"
-tk.Button(btns_frame, text = "7", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_click(7)).grid(row = 1, column = 0, padx = 1, pady = 1)
-tk.Button(btns_frame, text = "8", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_click(8)).grid(row = 1, column = 1, padx = 1, pady = 1)
-tk.Button(btns_frame, text = "9", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_click(9)).grid(row = 1, column = 2, padx = 1, pady = 1)
-tk.Button(btns_frame, text = "*", fg = "black", width = 10, height = 3, bd = 0, bg = "#E400FF", cursor = "hand2", command = lambda: btn_click("*")).grid(row = 1, column = 3, padx = 1, pady = 1)
+tk.Button(btns_frame, text = "7", fg = "black", width = 10, height = 3, bd = 0, bg = "#2057b0", cursor = "hand2", command = lambda: btn_click(7)).grid(row = 2, column = 1, padx = 1, pady = 1)
+tk.Button(btns_frame, text = "8", fg = "black", width = 10, height = 3, bd = 0, bg = "#2057b0", cursor = "hand2", command = lambda: btn_click(8)).grid(row = 2, column = 2, padx = 1, pady = 1)
+tk.Button(btns_frame, text = "9", fg = "black", width = 10, height = 3, bd = 0, bg = "#2057b0", cursor = "hand2", command = lambda: btn_click(9)).grid(row = 2, column = 3, padx = 1, pady = 1)
+tk.Button(btns_frame, text = "*", fg = "black", width = 10, height = 3, bd = 0, bg = "#2477ff", cursor = "hand2", command = lambda: btn_click("*")).grid(row = 2, column = 4, padx = 1, pady = 1)
 
 # Third row "4" "5" "6" "-"
-tk.Button(btns_frame, text = "4", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_click(4)).grid(row = 2, column = 0, padx = 1, pady = 1)
-tk.Button(btns_frame, text = "5", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_click(5)).grid(row = 2, column = 1, padx = 1, pady = 1)
-tk.Button(btns_frame, text = "6", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_click(6)).grid(row = 2, column = 2, padx = 1, pady = 1)
-tk.Button(btns_frame, text = "-", fg = "black", width = 10, height = 3, bd = 0, bg = "#FBFF00", cursor = "hand2", command = lambda: btn_click("-")).grid(row = 2, column = 3, padx = 1, pady = 1)
+tk.Button(btns_frame, text = "4", fg = "black", width = 10, height = 3, bd = 0, bg = "#2057b0", cursor = "hand2", command = lambda: btn_click(4)).grid(row = 3, column = 1, padx = 1, pady = 1)
+tk.Button(btns_frame, text = "5", fg = "black", width = 10, height = 3, bd = 0, bg = "#2057b0", cursor = "hand2", command = lambda: btn_click(5)).grid(row = 3, column = 2, padx = 1, pady = 1)
+tk.Button(btns_frame, text = "6", fg = "black", width = 10, height = 3, bd = 0, bg = "#2057b0", cursor = "hand2", command = lambda: btn_click(6)).grid(row = 3, column = 3, padx = 1, pady = 1)
+tk.Button(btns_frame, text = "-", fg = "black", width = 10, height = 3, bd = 0, bg = "#2477ff", cursor = "hand2", command = lambda: btn_click("-")).grid(row = 3, column = 4, padx = 1, pady = 1)
 
 # Fourth row "1" "2" "3" "+"
-tk.Button(btns_frame, text = "1", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_click(1)).grid(row = 3, column = 0, padx = 1, pady = 1)
-tk.Button(btns_frame, text = "2", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_click(2)).grid(row = 3, column = 1, padx = 1, pady = 1)
-tk.Button(btns_frame, text = "3", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_click(3)).grid(row = 3, column = 2, padx = 1, pady = 1)
-tk.Button(btns_frame, text = "+", fg = "black", width = 10, height = 3, bd = 0, bg = "#FF8300", cursor = "hand2", command = lambda: btn_click("+")).grid(row = 3, column = 3, padx = 1, pady = 1)
+tk.Button(btns_frame, text = "1", fg = "black", width = 10, height = 3, bd = 0, bg = "#2057b0", cursor = "hand2", command = lambda: btn_click(1)).grid(row = 4, column = 1, padx = 1, pady = 1)
+tk.Button(btns_frame, text = "2", fg = "black", width = 10, height = 3, bd = 0, bg = "#2057b0", cursor = "hand2", command = lambda: btn_click(2)).grid(row = 4, column = 2, padx = 1, pady = 1)
+tk.Button(btns_frame, text = "3", fg = "black", width = 10, height = 3, bd = 0, bg = "#2057b0", cursor = "hand2", command = lambda: btn_click(3)).grid(row = 4, column = 3, padx = 1, pady = 1)
+tk.Button(btns_frame, text = "+", fg = "black", width = 10, height = 3, bd = 0, bg = "#2477ff", cursor = "hand2", command = lambda: btn_click("+")).grid(row = 4, column = 4, padx = 1, pady = 1)
 
 # Fifth row "0" "." "="
-tk.Button(btns_frame, text = "0", fg = "black", width = 21, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_click(0)).grid(row = 4, column = 0, columnspan = 2, padx = 1, pady = 1)
-tk.Button(btns_frame, text = ".", fg = "black", width = 10, height = 3, bd = 0, bg = "#7C00FF", cursor = "hand2", command = lambda: btn_click(".")).grid(row = 4, column = 2, padx = 1, pady = 1)
-tk.Button(btns_frame, text = "=", fg = "black", width = 10, height = 3, bd = 0, bg = "#36D11D", cursor = "hand2", command = lambda: btn_equal()).grid(row = 4, column = 3, padx = 1, pady = 1)
+tk.Button(btns_frame, text = "0", fg = "black", width = 21, height = 3, bd = 0, bg = "#2057b0", cursor = "hand2", command = lambda: btn_click(0)).grid(row = 5, column = 1, columnspan = 2, padx = 1, pady = 1)
+tk.Button(btns_frame, text = ".", fg = "black", width = 10, height = 3, bd = 0, bg = "#2477ff", cursor = "hand2", command = lambda: btn_click(".")).grid(row = 5, column = 3, padx = 1, pady = 1)
+tk.Button(btns_frame, text = "=", fg = "black", width = 10, height = 3, bd = 0, bg = "#34db1a", cursor = "hand2", command = lambda: btn_equal()).grid(row = 5, column = 4, padx = 1, pady = 1)
 
 # Scientific modes "x^2" "x^3"
-tk.Button(btns_frame, text = "X^2", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_poweroftwo()).grid(row = 0, column = 4, padx = 1, pady = 1)
-tk.Button(btns_frame, text = "X^3", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_powerofthree()).grid(row = 1, column = 4, padx = 1, pady = 1)
-tk.Button(btns_frame, text = "X^y", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_click("**")).grid(row = 2, column = 4, padx =1, pady = 1)
-tk.Button(btns_frame, text = "(", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_click("(")).grid(row = 3, column = 4, padx =1, pady = 1)
-tk.Button(btns_frame, text = ")", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_click(")")).grid(row = 4, column = 4, padx =1, pady = 1)
+tk.Button(btns_frame, text = "X^2", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_poweroftwo()).grid(row = 0, column = 2, padx = 1, pady = 1)
+tk.Button(btns_frame, text = "X^3", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_powerofthree()).grid(row = 0, column = 3, padx = 1, pady = 1)
+tk.Button(btns_frame, text = "X^y", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_click("**")).grid(row = 0, column = 4, padx =1, pady = 1)
+tk.Button(btns_frame, text = "√", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_click("** 0.5")).grid(row = 1, column = 0, padx =1, pady = 1)
+
+#Brackets
+tk.Button(btns_frame, text = "(", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_click("(")).grid(row = 0, column = 0, padx =1, pady = 1)
+tk.Button(btns_frame, text = ")", fg = "black", width = 10, height = 3, bd = 0, bg = "#5C5C5C", cursor = "hand2", command = lambda: btn_click(")")).grid(row = 0, column = 1, padx =1, pady = 1)
 
 
 window.mainloop()
